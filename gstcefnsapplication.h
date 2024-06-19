@@ -4,6 +4,7 @@
 #pragma once
 
 #import <CoreFoundation/CoreFoundation.h>
+#include <objc/objc.h>
 
 /// Schedules a job to handle CEF's work for immediate execution
 /// on the main thread. The function does not block.
@@ -18,3 +19,5 @@ CFRunLoopTimerRef gst_cef_domessagework(CFTimeInterval interval);
 /// - NSEvent.NSEventMaskApplicationDefined as sent by gstmacos.mm
 /// The shutdown executes only once.
 void gst_cef_set_shutdown_observer();
+/// Execute [NSThread isMainThread] from a non-Objective-C context.
+BOOL gst_is_main_thread();
